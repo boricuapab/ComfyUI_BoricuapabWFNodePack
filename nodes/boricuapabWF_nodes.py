@@ -64,7 +64,7 @@ class BoricuapabWFINT:
     def INPUT_TYPES(cls):
         
         return {"required": {
-                    "Whole Number": ("STRING", {"multiline": False, "default": "1"}),
+                    "Whole Number": ("INT", {"default": 1, "min": 0, "max": 9999999999999}),
                     }
                 }
 
