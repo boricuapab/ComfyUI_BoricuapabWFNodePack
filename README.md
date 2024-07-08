@@ -3,6 +3,4 @@ Learning how to make my own comfy ui custom nodes
 
 Nodes:
 
-Text
-Text Concat
-Integer
+Text, Text Concat, Integer
