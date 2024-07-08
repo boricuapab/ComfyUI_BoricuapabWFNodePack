@@ -57,3 +57,24 @@ class BoricuapabWFConcatenateHelloWorld:
     def BWF_concatenate_text (self, textLine1, textLine2):
         text_out = textLine1 + " " + textLine2
         return(text_out, )
+    
+class BoricuapabWFINT:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        
+        return {"required": {
+                    "Whole Number": ("STRING", {"multiline": False, "default": "1"}),
+                    }
+                }
+
+    RETURN_TYPES = ("INT", )
+    FUNCTION = "BWF_INT"
+    CATEGORY = "BoricuapabWF Nodes"
+
+    def BWF_INT (self, Number):
+        try:
+            return_value = int(Number)
+        except Exception:
+            raise Exception("You've input an incorrect value for BWF INT")
+        return (return_value, )
