@@ -64,7 +64,7 @@ class BoricuapabWFINT:
     def INPUT_TYPES(cls):
         
         return {"required": {
-                    "Whole Number": ("INT", {"default": 1, "min": 0, "max": 9999999999999}),
+                    "Whole_Number": ("INT", {"default": 1, "min": 0, "max": 9007199254740992}),
                     }
                 }
 
@@ -72,9 +72,11 @@ class BoricuapabWFINT:
     FUNCTION = "BWF_INT"
     CATEGORY = "BoricuapabWF Nodes"
 
-    def BWF_INT (self, Number):
+    def BWF_INT (self, Whole_Number):
         try:
-            return_value = int(Number)
-        except Exception:
-            raise Exception("You've input an incorrect value for BWF INT")
+            if Whole_Number < 0:
+                raise ValueError("The value must be a non-negative integer.")
+            return_value = int(Whole_Number)
+        except Exception as e:
+            raise Exception(f"You've input an incorrect value for BWF INT: {e}")
         return (return_value, )
